@@ -11,15 +11,17 @@ public class ClickPane extends WinPane {
     @Override
     protected void onMousePressed(int x, int y, MouseEvent detail) {
         super.onMousePressed(x, y, detail);
-
-
-
-
-
-
-
+        if(detail.getButton()==MouseEvent.BUTTON1){
+            this.createDottedPolygon();
+        }
 
 
     }
+    public void createDottedPolygon(){
+
+
+    }
+
+
 }
 
