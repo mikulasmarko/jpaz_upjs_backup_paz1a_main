@@ -63,8 +63,19 @@ public class HomeTurtle extends Turtle {
     }
 
     public String sanitize(String s) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (i == 0) {
+                sb.append(s.charAt(0));
+            } else {
+                if (s.charAt(i) == s.charAt(i - 1)) {
+                    continue;
+                } else {
+                    sb.append(s.charAt(i));
+                }
+            }
 
-
-        return "ahoj";
+        }
+        return sb.toString();
     }
 }
