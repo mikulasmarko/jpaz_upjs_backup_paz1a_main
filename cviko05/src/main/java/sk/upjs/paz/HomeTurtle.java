@@ -12,8 +12,7 @@ public class HomeTurtle extends Turtle {
         System.out.println(dlzka);
 
         for (int i = 0; i < dlzka; i++) {
-            if (s1.charAt(i) == s2.charAt(i)) 
-            {
+            if (s1.charAt(i) == s2.charAt(i)) {
                 prefix.append(s1.charAt(i));
             }
         }
@@ -56,19 +55,16 @@ public class HomeTurtle extends Turtle {
             if (Character.isDigit(part.charAt(i))) {
                 sb.append(replacement.charAt(i));
 
-            }else {
+            } else {
                 sb.append(part.charAt(i));
             }
         }
         return sb.toString();
     }
 
-      public void sanitize(String s){
+    public String sanitize(String s) {
 
 
-
-
-
-
-}
+        return "ahoj";
+    }
 }
