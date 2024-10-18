@@ -24,7 +24,7 @@ public class Launcher {
 
         HomeTurtle h = new HomeTurtle();
         System.out.println(h.replaceNumbers("AB4 CD","ABCDEFGH"));
-        System.out.println(h.sanitize("jaaavaaaahoooo"));
+        System.out.println(h.sanitize("jjjjjjjjjJJJJ           jjjjjjjjjjjjaaavaaaahoooo"));
 
 //        System.out.println(h.countAcronyms("Ahoj ja si FICIM na CBD veciach OD Janka z HOSPODY"));
 //        System.out.println(h.longestPref("Ab", "ABCD"));
