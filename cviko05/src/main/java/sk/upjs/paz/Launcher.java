@@ -22,9 +22,9 @@ public class Launcher {
 //
 //        System.out.println(rovnakeReferencie);
 
-        HomeTurtle h = new HomeTurtle();
-        System.out.println(h.replaceNumbers("AB4 CD","ABCDEFGH"));
-        System.out.println(h.sanitize("jjjjjjjjjJJJJ           jjjjjjjjjjjjaaavaaaahoooo"));
+//        HomeTurtle h = new HomeTurtle();
+//        System.out.println(h.replaceNumbers("AB4 CD","ABCDEFGH"));
+//        System.out.println(h.sanitize("jjjjjjjjjJJJJ           jjjjjjjjjjjjaaavaaaahoooo"));
 
 //        System.out.println(h.countAcronyms("Ahoj ja si FICIM na CBD veciach OD Janka z HOSPODY"));
 //        System.out.println(h.longestPref("Ab", "ABCD"));
@@ -32,6 +32,11 @@ public class Launcher {
 //		System.out.println(k.sFarbouVon(5));
 //		k.kroky(1000);
         // you can put other initialization commands here
+
+
+
+
+        ClickPane cp = new ClickPane();
 
     }
 }
