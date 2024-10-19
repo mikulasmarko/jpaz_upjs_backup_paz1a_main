@@ -5,11 +5,11 @@ import sk.upjs.jpaz2.*;
 public class Launcher {
 
     public static void main(String[] args) {
-        korytnackovo k = new korytnackovo();
-        k.nahodneFarby();
-        System.out.println(k.pocetTopKorytnaciek(300));
-        k.bezpecnyKruh(4);
-        System.out.println(k.najblizsie());
+//        korytnackovo k = new korytnackovo();
+//        k.nahodneFarby();
+//        System.out.println(k.pocetTopKorytnaciek(300));
+//        k.bezpecnyKruh(4);
+//        System.out.println(k.najblizsie());
 //        k.kroky(1000);
 //        String s1 = new String("ahoj");
 //        String s2 = new String("ahoj");

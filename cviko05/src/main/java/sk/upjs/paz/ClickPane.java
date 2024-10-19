@@ -14,8 +14,9 @@ public class ClickPane extends WinPane {
     private int clickCounter = 1;
     private double prvyX = 0;
     private double prvyY = 0;
-    private double lastX=0;
-    private double lastY=0;
+
+    private double lastX = 0;
+    private double lastY = 0;
 
 
     @Override
@@ -30,30 +31,36 @@ public class ClickPane extends WinPane {
                 fr.setPosition(x, y);
                 prvyX = x;
                 prvyY = y;
-                lastX=x;
-                lastY=y;
+                lastX = x;
+                lastY = y;
                 fr.dot(10);
                 fr.setDirection(90);
                 fr.printCenter(Integer.toString(clickCounter));
                 clickCounter++;
                 this.remove(fr);
-            } else if () {
+            } else {
                 Turtle fr = new Turtle();
                 this.add(fr);
-                fr.setPosition(lastX,lastY);
+                fr.setPosition(lastX, lastY);
                 fr.setDirectionTowards(x, y);
                 double vzdialenost = fr.distanceTo(x, y);
-                fr.penUp();
-                fr.step(5);
-                fr.penDown();
-                fr.step(vzdialenost - 10);
-                fr.penUp();
-                fr.step(5);
-                fr.dot(10);
-                fr.setDirection(90);
-                fr.printCenter(Integer.toString(clickCounter));
-                clickCounter++;
-                this.remove(fr);
+                double vzdialenostZaciatok= fr.distanceTo(prvyX,prvyY);
+                if (vzdialenostZaciatok<10){
+                    fr.penUp();
+                    fr.step(10);
+                    fr.penDown();
+                    fr.step(vzdialenost - 20);
+                    fr.penUp();
+                    fr.step(10);
+                    fr.dot(10);
+                    fr.setDirection(90);
+                    fr.printCenter(Integer.toString(clickCounter));
+                    clickCounter++;
+                    this.remove(fr);
+                    lastX = x;
+                    lastY = y;
+                }
+
             }
 
 
