@@ -45,7 +45,7 @@ public class ClickPane extends WinPane {
                 fr.setDirectionTowards(x, y);
                 double vzdialenost = fr.distanceTo(x, y);
 
-                if (0==0) {
+                if () {
                     fr.penUp();
                     fr.step(10);
                     fr.penDown();
@@ -62,11 +62,7 @@ public class ClickPane extends WinPane {
                 }
 
             }
-
-
         }
-
-
     }
 }
 
