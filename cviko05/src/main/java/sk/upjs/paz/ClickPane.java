@@ -44,8 +44,8 @@ public class ClickPane extends WinPane {
                 fr.setPosition(lastX, lastY);
                 fr.setDirectionTowards(x, y);
                 double vzdialenost = fr.distanceTo(x, y);
-                double vzdialenostZaciatok= fr.distanceTo(prvyX,prvyY);
-                if (vzdialenostZaciatok<10){
+
+                if (0==0) {
                     fr.penUp();
                     fr.step(10);
                     fr.penDown();
