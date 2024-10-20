@@ -71,7 +71,6 @@ public class ClickPane extends WinPane {
                     lastX = x;
                     lastY = y;
                 }
-
             }
         }
     }
