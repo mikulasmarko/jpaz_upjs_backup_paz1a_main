@@ -14,7 +14,6 @@ public class ClickPane extends WinPane {
     private int clickCounter = 1;
     private double prvyX = 0;
     private double prvyY = 0;
-
     private double lastX = 0;
     private double lastY = 0;
 
@@ -22,9 +21,7 @@ public class ClickPane extends WinPane {
     @Override
     protected void onMousePressed(int x, int y, MouseEvent detail) {
         super.onMousePressed(x, y, detail);
-
         if (detail.getButton() == MouseEvent.BUTTON1) {
-
             if (clickCounter == 1) {
                 Turtle fr = new Turtle();
                 this.add(fr);
@@ -41,15 +38,29 @@ public class ClickPane extends WinPane {
             } else {
                 Turtle fr = new Turtle();
                 this.add(fr);
+                fr.setPosition(prvyX, prvyY);
+                double vzdialenostNaStart = fr.distanceTo(x, y);
                 fr.setPosition(lastX, lastY);
-                fr.setDirectionTowards(x, y);
-                double vzdialenost = fr.distanceTo(x, y);
-
-                if () {
+                if (vzdialenostNaStart < 10) {
+                    fr.setDirectionTowards(prvyX, prvyY);
                     fr.penUp();
                     fr.step(10);
                     fr.penDown();
-                    fr.step(vzdialenost - 20);
+                    double vzdialenost = fr.distanceTo(prvyX, prvyY);
+                    fr.step(vzdialenost - 10);
+                    fr.penUp();
+                    fr.step(10);
+                    clickCounter = 1;
+                    this.remove(fr);
+                    lastX = 0;
+                    lastY = 0;
+                } else {
+                    fr.setDirectionTowards(x, y);
+                    fr.penUp();
+                    fr.step(10);
+                    fr.penDown();
+                    double vzdialenost = fr.distanceTo(x, y);
+                    fr.step(vzdialenost - 10);
                     fr.penUp();
                     fr.step(10);
                     fr.dot(10);
