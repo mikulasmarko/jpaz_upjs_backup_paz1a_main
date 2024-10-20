@@ -12,7 +12,7 @@ public class Launcher {
 //        double xx = pato.divergence(10);
 //        System.out.println(xx);
 
-        click2 cp= new click2();
+        ClickPane cp=new ClickPane();
 
 
 
