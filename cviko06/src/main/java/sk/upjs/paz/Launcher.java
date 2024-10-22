@@ -5,6 +5,12 @@ import sk.upjs.jpaz2.*;
 public class Launcher {
 
 	public static void main(String[] args) {
+
 		KorytnaciSvet ks=new KorytnaciSvet();
+		ObjectInspector oi=new ObjectInspector();
+		oi.inspect(ks);
+
+
+
 	}
 }

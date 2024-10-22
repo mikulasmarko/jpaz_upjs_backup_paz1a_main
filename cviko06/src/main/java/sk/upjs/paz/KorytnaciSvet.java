@@ -27,7 +27,7 @@ public class KorytnaciSvet extends WinPane {
 
         Turtle[] noveKorytnacky = new Turtle[this.korytnacky.length + 1];
         System.arraycopy(this.korytnacky, 0, noveKorytnacky, 0, this.korytnacky.length);
-        noveKorytnacky[noveKorytnacky.length-1] = novaKorytnacka;
+        noveKorytnacky[noveKorytnacky.length - 1] = novaKorytnacka;
 
         this.korytnacky = noveKorytnacky;
     }
@@ -38,4 +38,26 @@ public class KorytnaciSvet extends WinPane {
             this.pridajKorytnacku(x, y);
         }
     }
+
+    public void vystrelNaTazisko() {
+        double X = 0;
+        double Y = 0;
+        for (int i = 0; i < korytnacky.length; i++) {
+            double aktualneX = this.korytnacky[i].getX();
+            double aktualneY = this.korytnacky[i].getY();
+            X = X + aktualneX;
+            Y = Y + aktualneY;
+
+        }
+        X=X/this.korytnacky.length;
+        Y=Y/this.korytnacky.length;
+        for (int i = 0; i < korytnacky.length; i++) {
+            double povodnaX= this.korytnacky[i].getX();
+            double povodnaY= this.korytnacky[i].getY();
+            this.korytnacky[i].moveTo(X,Y);
+            this.korytnacky[i].setPosition(povodnaX,povodnaY);
+
+        }
+    }
+
 }
