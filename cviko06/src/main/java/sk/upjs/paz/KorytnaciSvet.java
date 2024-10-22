@@ -1,3 +1,5 @@
+package sk.upjs.paz;
+
 import java.awt.event.MouseEvent;
 
 import sk.upjs.jpaz2.*;
