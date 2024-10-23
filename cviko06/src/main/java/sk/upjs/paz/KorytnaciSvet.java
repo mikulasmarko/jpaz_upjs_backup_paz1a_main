@@ -49,13 +49,13 @@ public class KorytnaciSvet extends WinPane {
             Y = Y + aktualneY;
 
         }
-        X=X/this.korytnacky.length;
-        Y=Y/this.korytnacky.length;
+        X = X / this.korytnacky.length;
+        Y = Y / this.korytnacky.length;
         for (int i = 0; i < korytnacky.length; i++) {
-            double povodnaX= this.korytnacky[i].getX();
-            double povodnaY= this.korytnacky[i].getY();
-            this.korytnacky[i].moveTo(X,Y);
-            this.korytnacky[i].setPosition(povodnaX,povodnaY);
+            double povodnaX = this.korytnacky[i].getX();
+            double povodnaY = this.korytnacky[i].getY();
+            this.korytnacky[i].moveTo(X, Y);
+            this.korytnacky[i].setPosition(povodnaX, povodnaY);
 
         }
     }
