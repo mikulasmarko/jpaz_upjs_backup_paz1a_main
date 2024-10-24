@@ -23,24 +23,20 @@ public class PrepinaciaHra extends WinPane {
 //        this.tah(4,1);
         this.kresliDosku();
     }
-
     /**
      * Nakresli mriezku
      */
     public void kresliMriezku() {
         Turtle k = new Turtle();
         this.add(k);
-
         for (int i = 1; i < 6; i++) {
             k.setPosition(i * 50, 0);
             k.moveTo(i * 50, this.getHeight());
         }
-
         for (int i = 1; i < 6; i++) {
             k.setPosition(0, i * 50);
             k.moveTo(this.getWidth(), i * 50);
         }
-
         this.remove(k);
     }
 
@@ -60,10 +56,7 @@ public class PrepinaciaHra extends WinPane {
                 }
                 kreslic.dot(20);
             }
-
         }
-
-
         this.remove(kreslic);
     }
 
@@ -90,13 +83,8 @@ public class PrepinaciaHra extends WinPane {
             if (dobraSuradnica(aktualnyR, aktualnyS)) {
                 this.doska[aktualnyS][aktualnyR] = !this.doska[aktualnyS][aktualnyR];
             }
-
-
         }
-
-
     }
-
     /**
      * Vytvori startovacie rozlozenie kamenov tak, ze spravi
      * zadany pocet nahodnych prepnuti (tahov)
@@ -108,7 +96,6 @@ public class PrepinaciaHra extends WinPane {
             stlpec = (int) (Math.random() * 6);
             riadok = (int) (Math.random() * 6);
             this.tah(riadok, stlpec);
-
         }
     }
 
