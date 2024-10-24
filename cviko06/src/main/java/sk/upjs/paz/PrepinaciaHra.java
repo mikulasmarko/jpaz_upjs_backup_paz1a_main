@@ -1,5 +1,6 @@
 package sk.upjs.paz;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 
 import sk.upjs.jpaz2.*;
@@ -19,6 +20,7 @@ public class PrepinaciaHra extends WinPane {
     public PrepinaciaHra() {
         this.kresliMriezku();
         this.zamiesaj(30);
+//        this.tah(4,1);
         this.kresliDosku();
     }
 
@@ -47,13 +49,29 @@ public class PrepinaciaHra extends WinPane {
      * v this.doska
      */
     public void kresliDosku() {
-        // ???
+        Turtle kreslic = new Turtle();
+        this.add(kreslic);
+        for (int stlpce = 0; stlpce < 6; stlpce++) {
+            for (int riadky = 0; riadky < 6; riadky++) {
+                kreslic.setPosition(25 + stlpce * 50, 25 + riadky * 50);
+                kreslic.setFillColor(Color.red);
+                if (this.doska[stlpce][riadky]) {
+                    kreslic.setFillColor(Color.BLUE);
+                }
+                kreslic.dot(20);
+            }
+
+        }
+
+
+        this.remove(kreslic);
     }
 
     /**
      * Overi, ci riadok r a stlpec s su platne suradnice
      */
     public boolean dobraSuradnica(int r, int s) {
+
         return (r >= 0) && (r < 6) && (s >= 0) && (s < 6);
     }
 
@@ -63,8 +81,20 @@ public class PrepinaciaHra extends WinPane {
      */
     public void tah(int r, int s) {
         int[][] smery = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int aktualnyS = 0;
+        int aktualnyR = 0;
 
-        // ???
+        for (int i = 0; i < smery.length; i++) {
+            aktualnyS = s + smery[i][0];
+            aktualnyR = r + smery[i][1];
+            if (dobraSuradnica(aktualnyR, aktualnyS)) {
+                this.doska[aktualnyS][aktualnyR] = !this.doska[aktualnyS][aktualnyR];
+            }
+
+
+        }
+
+
     }
 
     /**
@@ -72,7 +102,14 @@ public class PrepinaciaHra extends WinPane {
      * zadany pocet nahodnych prepnuti (tahov)
      */
     public void zamiesaj(int pocetMiesani) {
-        // ???
+        int stlpec = 0;
+        int riadok = 0;
+        for (int i = 0; i < pocetMiesani; i++) {
+            stlpec = (int) (Math.random() * 6);
+            riadok = (int) (Math.random() * 6);
+            this.tah(riadok, stlpec);
+
+        }
     }
 
     /**

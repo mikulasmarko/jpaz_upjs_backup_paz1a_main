@@ -59,7 +59,7 @@ public class KorytnaciSvet extends WinPane {
 
         }
     }
-
-    public int[] histogram(double x, double y, double d)
+//
+//    public int[] histogram(double x, double y, double d);
 
 }
