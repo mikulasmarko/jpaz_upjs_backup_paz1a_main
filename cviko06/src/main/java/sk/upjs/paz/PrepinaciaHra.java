@@ -117,11 +117,31 @@ public class PrepinaciaHra extends WinPane {
      * jednofarebna
      */
     public boolean jeVyherna() {
-        return false;
+
+        boolean nulta = doska[0][0];
+        for (int stlpce = 0; stlpce < 6; stlpce++) {
+            for (int riadky = 0; riadky < 6; riadky++) {
+                if (nulta != doska[riadky][stlpce]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     @Override
     protected void onMouseClicked(int x, int y, MouseEvent detail) {
-        // ???
+        if (hraBezi) {
+            int kliknutyRiadok = y / 50;
+            int kliknutyStlpec = x / 50;
+            tah(kliknutyRiadok, kliknutyStlpec);
+            this.kresliDosku();
+            if (jeVyherna()) {
+                hraBezi = false;
+                System.out.println("gratulujem");
+            }
+        }
+
     }
 }
