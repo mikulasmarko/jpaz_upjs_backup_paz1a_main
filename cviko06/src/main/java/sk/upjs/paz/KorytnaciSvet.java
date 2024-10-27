@@ -121,8 +121,39 @@ public class KorytnaciSvet extends WinPane {
     }
 
 
+    public double explozia(double x, double y, double sila) {
+        if (korytnacky == null) {
+            return 0;
+        }
+        double maxVzdialenostOdhodu = 0;
 
+        for (int i = 0; i < korytnacky.length; i++) {
+            double d = korytnacky[i].distanceTo(x, y);
+            double odhodenie = (sila * sila) / (d * d * d * d);
+            korytnacky[i].penUp();
+            korytnacky[i].setDirectionTowards(x, y);
+            ;
+            korytnacky[i].turn(180);
+            korytnacky[i].step(odhodenie);
+            if (odhodenie > maxVzdialenostOdhodu) {
+                maxVzdialenostOdhodu = odhodenie;
+            }
+        }
+        return maxVzdialenostOdhodu;
+    }
 
+    public double casDoPrichodu(double x, double y){
+        if (korytnacky == null) {
+            return 0;
+        }
+        double vysledok=0;
+        int idKorytnacky=(int)(Math.random()*(korytnacky.length));
+        double vzdialost=korytnacky[idKorytnacky].distanceTo(x,y);
+        double uhol=korytnacky[idKorytnacky].directionTowards(x,y);
+        double opacnyUhol=360-uhol;
+
+        return vzdialost+Math.min(uhol,opacnyUhol);
+    }
 
 
 

@@ -19,6 +19,7 @@ public class Launcher {
 //        System.out.println(pl.indexNajmensieho(pole,2,6));
 //
 //            PrepinaciaHra ph= new PrepinaciaHra();
+//        ks.explozia(150,150,100);
 
 
 
