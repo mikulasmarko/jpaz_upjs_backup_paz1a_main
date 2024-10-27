@@ -2,6 +2,7 @@ package sk.upjs.paz;
 
 import sk.upjs.jpaz2.*;
 
+import java.awt.*;
 import java.util.Arrays;
 
 public class Launcher {
@@ -20,6 +21,7 @@ public class Launcher {
 //
 //            PrepinaciaHra ph= new PrepinaciaHra();
 //        ks.explozia(150,150,100);
+        ks.prestrelka(2, Color.blue);
 
 
 

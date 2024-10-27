@@ -1,5 +1,6 @@
 package sk.upjs.paz;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
@@ -142,21 +143,32 @@ public class KorytnaciSvet extends WinPane {
         return maxVzdialenostOdhodu;
     }
 
-    public double casDoPrichodu(double x, double y){
+    public double casDoPrichodu(double x, double y) {
         if (korytnacky == null) {
             return 0;
         }
-        double vysledok=0;
-        int idKorytnacky=(int)(Math.random()*(korytnacky.length));
-        double vzdialost=korytnacky[idKorytnacky].distanceTo(x,y);
-        double uhol=korytnacky[idKorytnacky].directionTowards(x,y);
-        double opacnyUhol=360-uhol;
+        double vysledok = 0;
+        int idKorytnacky = (int) (Math.random() * (korytnacky.length));
+        double vzdialost = korytnacky[idKorytnacky].distanceTo(x, y);
+        double uhol = korytnacky[idKorytnacky].directionTowards(x, y);
+        double opacnyUhol = 360 - uhol;
+        System.out.println(uhol + " " + opacnyUhol + " " + vzdialost);
 
-        return vzdialost+Math.min(uhol,opacnyUhol);
+        return vzdialost + Math.min(uhol, opacnyUhol);
     }
 
 
+    public void prestrelka(int idxPrvehoStrelca, Color farbaStriel) {
 
+
+
+
+
+
+
+
+
+    }
 }
 
 
