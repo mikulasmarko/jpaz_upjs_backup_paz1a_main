@@ -69,7 +69,7 @@ public class KorytnaciSvet extends WinPane {
                 vzdialenostNajdalej = this.korytnacky[i].distanceTo(x, y);
             }
         }
-        int velkostPola = (int) (vzdialenostNajdalej / d)+1;
+        int velkostPola = (int) (vzdialenostNajdalej / d) + 1;
         System.out.println(velkostPola);
         int[] pole = new int[velkostPola];
 
@@ -78,11 +78,8 @@ public class KorytnaciSvet extends WinPane {
                 if (korytnacky[j].distanceTo(x, y) >= i * d && korytnacky[j].distanceTo(x, y) < i * d + d) {
                     pole[i]++;
                 }
-
             }
-
         }
-
         return pole;
     }
 
@@ -92,4 +89,43 @@ public class KorytnaciSvet extends WinPane {
         System.out.println(Arrays.toString(p));
     }
 
+
+    public void doStvorca(double dlzkaStrany) {
+        if (korytnacky == null) {
+            return;
+        }
+        Turtle pomocnik = new Turtle();
+        pomocnik.penUp();
+        this.add(pomocnik);
+        int idKorytnacky = 0;
+        int pocetKorNaStranu = korytnacky.length / 4;
+        double dlzkaMedziKorytnackami = dlzkaStrany / (pocetKorNaStranu + 1);
+        for (int j = 0; j < 4; j++) {
+
+
+            pomocnik.step(dlzkaStrany / 2);
+            pomocnik.turn(90);
+            pomocnik.step(-dlzkaStrany / 2);
+            for (int i = 0; i < pocetKorNaStranu; i++) {
+                pomocnik.step(dlzkaMedziKorytnackami);
+                korytnacky[idKorytnacky].setPosition(pomocnik.getPosition());
+                idKorytnacky++;
+            }
+            pomocnik.step(-pocetKorNaStranu * dlzkaMedziKorytnackami);
+            pomocnik.step(dlzkaStrany / 2);
+            pomocnik.turn(-90);
+            pomocnik.step(-dlzkaStrany / 2);
+            pomocnik.turn(90);
+        }
+        this.remove(pomocnik);
+    }
+
+
+
+
+
+
+
 }
+
+
