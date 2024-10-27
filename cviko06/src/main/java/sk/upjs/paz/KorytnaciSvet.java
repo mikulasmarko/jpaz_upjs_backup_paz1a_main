@@ -1,6 +1,7 @@
 package sk.upjs.paz;
 
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 
 import sk.upjs.jpaz2.*;
 
@@ -61,18 +62,34 @@ public class KorytnaciSvet extends WinPane {
     }
 
     public int[] histogram(double x, double y, double d) {
-        int[] pole = new int[5];
+
         double vzdialenostNajdalej = Double.MIN_NORMAL;
         for (int i = 0; i < korytnacky.length; i++) {
             if (this.korytnacky[i].distanceTo(x, y) > vzdialenostNajdalej) {
                 vzdialenostNajdalej = this.korytnacky[i].distanceTo(x, y);
             }
         }
-        double velkostPola= vzdialenostNajdalej/d;
+        int velkostPola = (int) (vzdialenostNajdalej / d)+1;
         System.out.println(velkostPola);
+        int[] pole = new int[velkostPola];
 
+        for (int i = 0; i < velkostPola; i++) {
+            for (int j = 0; j < korytnacky.length; j++) {
+                if (korytnacky[j].distanceTo(x, y) >= i * d && korytnacky[j].distanceTo(x, y) < i * d + d) {
+                    pole[i]++;
+                }
+
+            }
+
+        }
 
         return pole;
+    }
+
+    public void testHistogram(double x, double y, double d) {
+        int[] p = this.histogram(x, y, d);
+        System.out.print("histogram(" + x + ", " + y + ", " + d + "): ");
+        System.out.println(Arrays.toString(p));
     }
 
 }
