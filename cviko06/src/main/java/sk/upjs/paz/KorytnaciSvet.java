@@ -44,6 +44,7 @@ public class KorytnaciSvet extends WinPane {
     public void vystrelNaTazisko() {
         double X = 0;
         double Y = 0;
+        //vyuzijem cyklus na spocitanie vstkych xovych a yovych suradnic
         for (int i = 0; i < korytnacky.length; i++) {
             double aktualneX = this.korytnacky[i].getX();
             double aktualneY = this.korytnacky[i].getY();
@@ -51,8 +52,10 @@ public class KorytnaciSvet extends WinPane {
             Y = Y + aktualneY;
 
         }
+        //vydelim suradnice poctom korytnaciek, dostanem hodnoty taziska
         X = X / this.korytnacky.length;
         Y = Y / this.korytnacky.length;
+        //kazdu korytnacku si zapamatam kde bola, poslem do taziska a spat
         for (int i = 0; i < korytnacky.length; i++) {
             double povodnaX = this.korytnacky[i].getX();
             double povodnaY = this.korytnacky[i].getY();
@@ -63,17 +66,21 @@ public class KorytnaciSvet extends WinPane {
     }
 
     public int[] histogram(double x, double y, double d) {
-
-        double vzdialenostNajdalej = Double.MIN_NORMAL;
+        //zistim aka bola najvacsia vzdialenost
+        double vzdialenostNajdalej = Double.MIN_VALUE;
         for (int i = 0; i < korytnacky.length; i++) {
             if (this.korytnacky[i].distanceTo(x, y) > vzdialenostNajdalej) {
                 vzdialenostNajdalej = this.korytnacky[i].distanceTo(x, y);
             }
         }
+        //velkost pola zistim tak ze zaokruhlim vzdielenost na cele cisla
         int velkostPola = (int) (vzdialenostNajdalej / d) + 1;
         System.out.println(velkostPola);
         int[] pole = new int[velkostPola];
+        //nemusim riesit ci existuje korytnacka nejaka, lebo ak nie
+        //vytvori pole s rozmerom 1, a hodnotou 0
 
+        //zistujem v akej sekcii su korytnacky a zvysujem hodnotu v poli podla poctu
         for (int i = 0; i < velkostPola; i++) {
             for (int j = 0; j < korytnacky.length; j++) {
                 if (korytnacky[j].distanceTo(x, y) >= i * d && korytnacky[j].distanceTo(x, y) < i * d + d) {
@@ -81,9 +88,11 @@ public class KorytnaciSvet extends WinPane {
                 }
             }
         }
+        //vratim pole
         return pole;
     }
 
+    //toto na testovanie
     public void testHistogram(double x, double y, double d) {
         int[] p = this.histogram(x, y, d);
         System.out.print("histogram(" + x + ", " + y + ", " + d + "): ");
@@ -92,50 +101,62 @@ public class KorytnaciSvet extends WinPane {
 
 
     public void doStvorca(double dlzkaStrany) {
+        //overim ci vobec je nejaka
         if (korytnacky == null) {
             return;
         }
+        //vytvorim si pomocnu korytnacku a zdvihnem jej perp
         Turtle pomocnik = new Turtle();
         pomocnik.penUp();
         this.add(pomocnik);
+        //mam pocitadlo nech viem pristupovat ku korytnackam
         int idKorytnacky = 0;
+        //kedze svtorec ma 4 strany, zisti pocet kor na jednu stranu
         int pocetKorNaStranu = korytnacky.length / 4;
+        //zisti kolko kor bude na jednej strane
         double dlzkaMedziKorytnackami = dlzkaStrany / (pocetKorNaStranu + 1);
+
+        //cyklus sa opakuje 4 krat lebo stvorec
         for (int j = 0; j < 4; j++) {
-
-
+            //pomocnika presuniem do rohu stvorca
             pomocnik.step(dlzkaStrany / 2);
             pomocnik.turn(90);
             pomocnik.step(-dlzkaStrany / 2);
+            //cyklus na vytvorenie korytnaciek na jednej strane
             for (int i = 0; i < pocetKorNaStranu; i++) {
                 pomocnik.step(dlzkaMedziKorytnackami);
                 korytnacky[idKorytnacky].setPosition(pomocnik.getPosition());
                 idKorytnacky++;
             }
+            //vratim pomocnika do stredu a natocim ho
             pomocnik.step(-pocetKorNaStranu * dlzkaMedziKorytnackami);
             pomocnik.step(dlzkaStrany / 2);
             pomocnik.turn(-90);
             pomocnik.step(-dlzkaStrany / 2);
             pomocnik.turn(90);
         }
+        //dam ho prec aby nezavadzal
         this.remove(pomocnik);
     }
 
 
     public double explozia(double x, double y, double sila) {
+        //overim ci neni prazdne
         if (korytnacky == null) {
             return 0;
         }
+        //vytvorim si premennu kde si budem zapisovat max odhodenie
         double maxVzdialenostOdhodu = 0;
-
+        //budem prechadzat kazdou kor, zistim jej vzdialenost od explozie, vypocitam odhodenie
         for (int i = 0; i < korytnacky.length; i++) {
             double d = korytnacky[i].distanceTo(x, y);
             double odhodenie = (sila * sila) / (d * d * d * d);
             korytnacky[i].penUp();
+            //natocim na vybuch/ potom ju otocim prec od vybuchu a pohnem o odhodenie
             korytnacky[i].setDirectionTowards(x, y);
-            ;
             korytnacky[i].turn(180);
             korytnacky[i].step(odhodenie);
+            //zistujem najvacsie odhodenie
             if (odhodenie > maxVzdialenostOdhodu) {
                 maxVzdialenostOdhodu = odhodenie;
             }
@@ -144,28 +165,26 @@ public class KorytnaciSvet extends WinPane {
     }
 
     public double casDoPrichodu(double x, double y) {
+        //overim ci existuju kor
         if (korytnacky == null) {
             return 0;
         }
+
         double vysledok = 0;
+
         int idKorytnacky = (int) (Math.random() * (korytnacky.length));
+        //zistim v akej vzdialenosti od bodu kor je
         double vzdialost = korytnacky[idKorytnacky].distanceTo(x, y);
+        //zistim aky je uhol korytnacky, plus aky je uhol z druhej strany
         double uhol = korytnacky[idKorytnacky].directionTowards(x, y);
         double opacnyUhol = 360 - uhol;
-        System.out.println(uhol + " " + opacnyUhol + " " + vzdialost);
-
+        //kedze mam vratit najkratsiu moznu zaujima ma mensi uhol
+        //a kedze sa hybe 1px/s alebo 1stupen/s staci mi ich scitat
         return vzdialost + Math.min(uhol, opacnyUhol);
     }
 
 
     public void prestrelka(int idxPrvehoStrelca, Color farbaStriel) {
-
-
-
-
-
-
-
 
 
     }
