@@ -59,7 +59,20 @@ public class KorytnaciSvet extends WinPane {
 
         }
     }
-//
-//    public int[] histogram(double x, double y, double d);
+
+    public int[] histogram(double x, double y, double d) {
+        int[] pole = new int[5];
+        double vzdialenostNajdalej = Double.MIN_NORMAL;
+        for (int i = 0; i < korytnacky.length; i++) {
+            if (this.korytnacky[i].distanceTo(x, y) > vzdialenostNajdalej) {
+                vzdialenostNajdalej = this.korytnacky[i].distanceTo(x, y);
+            }
+        }
+        double velkostPola= vzdialenostNajdalej/d;
+        System.out.println(velkostPola);
+
+
+        return pole;
+    }
 
 }

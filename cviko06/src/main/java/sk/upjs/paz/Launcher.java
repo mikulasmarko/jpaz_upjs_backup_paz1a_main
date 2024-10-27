@@ -8,9 +8,9 @@ public class Launcher {
 
     public static void main(String[] args) {
 
-////		KorytnaciSvet ks=new KorytnaciSvet();
-////		ObjectInspector oi=new ObjectInspector();
-////		oi.inspect(ks);
+        KorytnaciSvet ks = new KorytnaciSvet();
+        ObjectInspector oi = new ObjectInspector();
+        oi.inspect(ks);
 //        int[] pole = {1,1,1,2,5,6,8,9};
 //        Poliarka pl = new Poliarka();
 //        System.out.println(pl.pocetOpakovani(pole, 5));
@@ -18,6 +18,9 @@ public class Launcher {
 //        System.out.println(pl.jeNeklesajuce(pole));
 //        System.out.println(pl.indexNajmensieho(pole,2,6));
 //
-            PrepinaciaHra ph= new PrepinaciaHra();
+//            PrepinaciaHra ph= new PrepinaciaHra();
+
+
+
     }
 }
