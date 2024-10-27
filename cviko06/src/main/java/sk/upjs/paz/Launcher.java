@@ -21,7 +21,7 @@ public class Launcher {
 //
 //            PrepinaciaHra ph= new PrepinaciaHra();
 //        ks.explozia(150,150,100);
-        ks.prestrelka(2, Color.blue);
+//        ks.prestrelka(2, Color.blue);
 
 
 

@@ -184,10 +184,57 @@ public class KorytnaciSvet extends WinPane {
     }
 
 
+    public int najblizsiaCoNeniTrafena(boolean[] cinter, int aktualneStriela) {
+        double x = this.korytnacky[aktualneStriela].getX();
+        double y = this.korytnacky[aktualneStriela].getY();
+        double najmensiaVzdialenost = Double.MAX_VALUE;
+        //nastavim na nejake cislo ktore nikdy nemoze nastat
+        int najblizsieID = -7;
+//overujem ktora korytnacka je najblisie a nebola zasiahnuta v boolene
+        for (int i = 0; i < korytnacky.length; i++) {
+            if (aktualneStriela != i && korytnacky[i].distanceTo(x, y) < najmensiaVzdialenost && !cinter[i]) {
+                najmensiaVzdialenost = korytnacky[i].distanceTo(x, y);
+                najblizsieID = i;
+            }
+        }
+        //vrati bud id najblizsieho co este nebol zasiahnuty alebo -7 aby nas vyhodilo z cyklu
+        return najblizsieID;
+    }
+
     public void prestrelka(int idxPrvehoStrelca, Color farbaStriel) {
 
+        int aktualneStriela = idxPrvehoStrelca;
+        boolean[] cintorin = new boolean[korytnacky.length];
+        //vytvorim pomocnu metodu co zisti kto je najblizsie a sucasne nebol zasiahnuty
+        int idNaKohoStiela = this.najblizsiaCoNeniTrafena(cintorin, aktualneStriela);
+        //vytvorim si premenne pre suradnice
+        double najblizsiaX;
+        double najblizsiaY;
+        //vytvorim pomocnu korytnacku pomocou ktorej budem robit ciary
+        Turtle pomocnik = new Turtle();
+        this.add(pomocnik);
+        pomocnik.setPenColor(farbaStriel);
+        pomocnik.setPosition(korytnacky[aktualneStriela].getPosition());
+        //kym bude platit podmienka ze nie su vystrielany vsetci
+        while (idNaKohoStiela != -7) {
+            najblizsiaX = korytnacky[idNaKohoStiela].getX();
+            najblizsiaY = korytnacky[idNaKohoStiela].getY();
+            //natocim pomocnu kor na tu na ktoru sa striela, vystrel urobi pomocna
+            this.korytnacky[aktualneStriela].turnTowards(najblizsiaX, najblizsiaY);
+            pomocnik.moveTo(najblizsiaX, najblizsiaY);
+            //pridam do na cintorin tu co bola zasiahnuta a bude strielat zo zahrobia
+            cintorin[idNaKohoStiela] = true;
+            //novy strielajuci je ten co bol zasiahnuty
+            aktualneStriela = idNaKohoStiela;
+            //zistim noveho strielajuceho, ak uz nie je, pomocna funckia vrati -7, vyhodi nas z cyklu
+            idNaKohoStiela = najblizsiaCoNeniTrafena(cintorin, aktualneStriela);
+        }
 
+        //odstranim nech nezavadzia
+        this.remove(pomocnik);
     }
+
+
 }
 
 
