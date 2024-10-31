@@ -8,9 +8,9 @@ public class Launcher {
 
 	public static void main(String[] args) {
 
-		File mojSuborik=new File("C:\\Users\\Mikuláš\\IdeaProjects\\skolaPAZ");
+		File Adresar=new File("C:\\Users");
 		SmartTurtle st= new SmartTurtle();
-		System.out.println(st.totalSizeOfFilesInDirectory(mojSuborik));
+		System.out.println(st.totalSizeOfFilesInDirectory(Adresar));
 
 	}
 }
