@@ -170,17 +170,24 @@ public class KorytnaciSvet extends WinPane {
             return 0;
         }
 
-        double vysledok = 0;
+        double najrychlesiCas = Double.MAX_VALUE;
+        double vysledok;
 
-        int idKorytnacky = (int) (Math.random() * (korytnacky.length));
-        //zistim v akej vzdialenosti od bodu kor je
-        double vzdialost = korytnacky[idKorytnacky].distanceTo(x, y);
-        //zistim aky je uhol korytnacky, plus aky je uhol z druhej strany
-        double uhol = korytnacky[idKorytnacky].directionTowards(x, y);
-        double opacnyUhol = 360 - uhol;
-        //kedze mam vratit najkratsiu moznu zaujima ma mensi uhol
-        //a kedze sa hybe 1px/s alebo 1stupen/s staci mi ich scitat
-        return vzdialost + Math.min(uhol, opacnyUhol);
+        for (int i = 0; i < korytnacky.length; i++) {
+            //zistim v akej vzdialenosti od bodu kor je
+            double vzdialost = korytnacky[i].distanceTo(x, y);
+            //zistim aky je uhol korytnacky, plus aky je uhol z druhej strany
+            double uhol = korytnacky[i].directionTowards(x, y);
+            double opacnyUhol = 360 - uhol;
+            //zaujima nas sucet otocenie a presunutia
+            vysledok = vzdialost + Math.min(uhol, opacnyUhol);
+            //ak je tento sucet mensi ako najrychlejsi cas stane sa novym najrychlesim casom
+            if (vysledok < najrychlesiCas) {
+                najrychlesiCas = vysledok;
+            }
+        }
+        //vratim cas najrychlejsej
+        return najrychlesiCas;
     }
 
 
@@ -204,6 +211,7 @@ public class KorytnaciSvet extends WinPane {
     public void prestrelka(int idxPrvehoStrelca, Color farbaStriel) {
 
         int aktualneStriela = idxPrvehoStrelca;
+        //vytvorim pole kde si poznacim ktora bola zastrelena
         boolean[] cintorin = new boolean[korytnacky.length];
         //vytvorim pomocnu metodu co zisti kto je najblizsie a sucasne nebol zasiahnuty
         int idNaKohoStiela = this.najblizsiaCoNeniTrafena(cintorin, aktualneStriela);
@@ -230,7 +238,7 @@ public class KorytnaciSvet extends WinPane {
             idNaKohoStiela = najblizsiaCoNeniTrafena(cintorin, aktualneStriela);
         }
 
-        //odstranim nech nezavadzia
+        //odstranim nech nezavadzia pomocnik
         this.remove(pomocnik);
     }
 
