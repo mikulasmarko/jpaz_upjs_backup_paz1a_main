@@ -1,0 +1,10 @@
+package sk.upjs.paz;
+
+import sk.upjs.jpaz2.*;
+
+public class SmartTurtle extends Turtle {
+
+
+
+
+}

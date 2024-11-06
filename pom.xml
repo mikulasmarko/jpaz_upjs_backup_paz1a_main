@@ -18,6 +18,7 @@
         <module>cviko05</module>
         <module>cviko06</module>
         <module>cviko07</module>
+        <module>zapocet_try</module>
     </modules>
 
     <properties>
