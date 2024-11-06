@@ -53,5 +53,13 @@ public class Midtermarka extends Turtle {
 
     }
 
+    public boolean digitsMultiplied(int n){
+
+
+
+
+        return true;
+    }
+
 
 }

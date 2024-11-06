@@ -15,6 +15,8 @@ public class Launcher {
 		oi.inspect(sandbox);
 
 		franklin.pumpkinsExhibition(9,9);
+
+		Midtermpane mp = new Midtermpane();
 		
 	}
 }
