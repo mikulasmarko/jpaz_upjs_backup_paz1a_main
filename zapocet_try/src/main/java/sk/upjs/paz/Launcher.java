@@ -17,6 +17,7 @@ public class Launcher {
 		franklin.pumpkinsExhibition(9,9);
 
 		Midtermpane mp = new Midtermpane();
+		System.out.println(mp.runDown());
 		
 	}
 }
