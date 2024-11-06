@@ -14,10 +14,14 @@ public class Launcher {
 		oi.inspect(franklin);
 		oi.inspect(sandbox);
 
-		franklin.pumpkinsExhibition(9,9);
-
-		Midtermpane mp = new Midtermpane();
-		System.out.println(mp.runDown());
+//		franklin.pumpkinsExhibition(9,9);
+//
+//		Midtermpane mp = new Midtermpane();
+//		System.out.println(mp.runDown());
+//
+//
+//		System.out.println(franklin.finePasswords("kOkot3 alePicu MarIAtaSkare 123 pici12T"));
+		System.out.println(franklin.digitsMultiplied(421121111));
 		
 	}
 }
