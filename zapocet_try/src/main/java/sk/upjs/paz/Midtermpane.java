@@ -4,6 +4,7 @@ import sk.upjs.jpaz2.Turtle;
 import sk.upjs.jpaz2.WinPane;
 
 public class Midtermpane extends WinPane {
+
     private Turtle[] korytnacky = new Turtle[12];
 
     public Midtermpane() {
@@ -13,8 +14,6 @@ public class Midtermpane extends WinPane {
             korytnacky[i].setPosition(this.getWidth() * Math.random(), this.getHeight() * Math.random() / 2);
             korytnacky[i].setDirection((int) (Math.random() * 4) * 90);
         }
-
-
     }
 
     public int runDown() {
