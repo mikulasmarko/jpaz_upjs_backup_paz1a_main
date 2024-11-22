@@ -19,7 +19,8 @@ public class FileTurtle extends Turtle {
             while (sc.hasNextLine()) {               
                 String[] riadok = sc.nextLine().split(" ");
                 for (int i = 0; i < riadok.length; i++) {
-                    if (riadok[i] == name) {
+                    if (riadok[i] == name)//chuju použiť equals
+ {
                         for (int j = 0; j < riadok.length; j++) {
                             String toNum = riadok[j];
                             try {
