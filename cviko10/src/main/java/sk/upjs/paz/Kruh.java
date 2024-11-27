@@ -19,10 +19,13 @@ public class Kruh extends Tvar {
 
         Turtle turtle = new Turtle(getSurX(), getSurY());
         plocha.add(turtle);
+        turtle.setFillColor(this.getColor());
         turtle.dot(radius);
+
 //        System.err.println("ej");
         plocha.remove(turtle);
     }
+
 
 
 }
