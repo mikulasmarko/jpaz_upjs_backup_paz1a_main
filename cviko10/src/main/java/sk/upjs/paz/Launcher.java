@@ -8,8 +8,8 @@ public class Launcher {
 
     public static void main(String[] args) {
 
-        Kruh kruh = new Kruh(30, 100, 50, Color.RED);
+        Tvar neviem = new Obdlznik(30, 100, Color.BLUE, 50,30);
         WinPane wp = new WinPane();
-        kruh.vykresliSa(wp);
+        neviem.vykresliSa(wp);
     }
 }

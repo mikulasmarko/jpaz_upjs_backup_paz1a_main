@@ -21,7 +21,20 @@ public class Obdlznik extends Tvar {
         Turtle turtle = new Turtle(getSurX(), getSurY());
         plocha.add(turtle);
         turtle.setFillColor(this.getColor());
-
+        turtle.setFillColor(getColor());
+        turtle.penUp();
+        turtle.step(a / 2);
+        turtle.turn(-90);
+        turtle.step(b / 2);
+        turtle.turn(90);
+        turtle.openPolygon();
+        for (int i = 0; i < 2; i++) {
+            turtle.turn(90);
+            turtle.step(a);
+            turtle.turn(90);
+            turtle.step(b);
+        }
+        turtle.closePolygon();
 
         plocha.remove(turtle);
     }
