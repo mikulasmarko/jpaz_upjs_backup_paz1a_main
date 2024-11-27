@@ -14,5 +14,6 @@ public class Launcher {
 		m.turn(45);
 		m.christmasTree(5,5);
 		System.out.println(m.containsTwinChar("oOrRrMmMadWuiS"));
+		F
 	}
 }
