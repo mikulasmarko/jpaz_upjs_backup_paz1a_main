@@ -41,5 +41,7 @@ public class Obdlznik extends Tvar {
 
     public boolean jeVnutornyBod(double x, double y) {
 
+
+        return true;
     }
 }
