@@ -38,4 +38,8 @@ public class Obdlznik extends Tvar {
 
         plocha.remove(turtle);
     }
+
+    public boolean jeVnutornyBod(double x, double y) {
+
+    }
 }

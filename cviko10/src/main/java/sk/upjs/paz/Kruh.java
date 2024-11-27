@@ -12,7 +12,7 @@ public class Kruh extends Tvar {
 
     public Kruh(double radius, double X, double Y, Color c) {
         super(X, Y, c);
-        this.radius=radius;
+        this.radius = radius;
     }
 
     public void vykresliSa(Pane plocha) {
@@ -26,6 +26,10 @@ public class Kruh extends Tvar {
         plocha.remove(turtle);
     }
 
+    public boolean jeVnutornyBod(double x, double y) {
+        Turtle nt = new Turtle(getSurX(),getSurY());
+        return nt.distanceTo(x, y) < radius;
+    }
 
 
 }

@@ -17,8 +17,14 @@ public class Tvar {
         this.color = color;
     }
 
-    public void vykresliSa(Pane plocha){
+    public void vykresliSa(Pane plocha) {
         System.err.println("asi ne moj zlaty");
+    }
+
+
+
+    public boolean jeVnutornyBod(double x, double y) {
+        return surY == y && surX == x;
     }
 
     public double getSurX() {
