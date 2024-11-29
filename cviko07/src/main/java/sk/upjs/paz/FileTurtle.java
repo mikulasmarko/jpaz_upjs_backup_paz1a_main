@@ -8,7 +8,10 @@ import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
 
+
+
 public class FileTurtle extends Turtle {
+
 
     public boolean isWinner(String name, String resultsFilename) {
         name = name.toLowerCase();//zmenim si riadok na male, nech to viem porovnavat
