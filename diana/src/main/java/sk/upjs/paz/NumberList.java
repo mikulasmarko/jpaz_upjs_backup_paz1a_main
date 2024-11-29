@@ -60,7 +60,7 @@ public class NumberList {
     }
 
     public int[] getNumber() {
-        return number;
+        return number.clone();
     }
 
     public void setNumber(int[] number) {
