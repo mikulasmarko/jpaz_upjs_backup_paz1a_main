@@ -50,10 +50,19 @@ public class Podpriemer {
     }
 
     public double priemer(List<Integer> cisla, boolean ajZaporne) {
-        double vysledok=
+        double vysledok;
+        if (ajZaporne) {
+            vysledok = mojeZaporneCisielko;
+        } else {
+            vysledok = 0;
+        }
+        int pocet = cisla.size();
 
+        for (Integer i : cisla) {
+            vysledok += (double) (i);
+        }
         // pozor na celociselne delenie
-        return 0;
+        return vysledok / pocet;
     }
 
     public List<Integer> preriedAZorad(List<Integer> cisla, double priemer) {
