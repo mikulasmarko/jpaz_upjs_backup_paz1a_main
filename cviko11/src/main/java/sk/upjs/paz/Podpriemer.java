@@ -10,13 +10,14 @@ import java.util.Scanner;
 public class Podpriemer {
 
     int mojeZaporneCisielko;
+    static Scanner sc = new Scanner(System.in);
 
     public List<Integer> nacitajCisla() {
         List<Integer> mojNovyListik = new ArrayList<>();
-        Scanner sc = new Scanner(System.in);
+
         int noveCislo = Integer.MAX_VALUE;
 
-        while (noveCislo > 0) {
+        while (noveCislo >= 0) {
             System.out.println("daj mi cislo: ");
             noveCislo = sc.nextInt();
             if (noveCislo < 0) {
@@ -24,13 +25,13 @@ public class Podpriemer {
             }
             mojNovyListik.add(noveCislo);
         }
-        sc.close();
+
         return mojNovyListik;
     }
 
     public boolean overitCiAjZaporne() {
 
-        Scanner sc = new Scanner(System.in);
+
         Boolean ouYesMamOdpoved = null;
         while (ouYesMamOdpoved == null) {
             System.out.println("chces tam aj zaporne kamo? true/false");
@@ -44,12 +45,11 @@ public class Podpriemer {
         // opytame sa pouzivatela
         // otazka - system out println
         // odpoved - scanner system.in
-        sc.close();
+
         return ouYesMamOdpoved;
     }
 
     public double priemer(List<Integer> cisla, boolean ajZaporne) {
-
 
 
         // pozor na celociselne delenie
@@ -81,7 +81,7 @@ public class Podpriemer {
         List<Integer> vysledok = p.preriedAZorad(cisla, priemer);
         // 5. nejak vypisat cisla
         p.vypisCisla(vysledok);
-
+        sc.close();
     }
 
 
