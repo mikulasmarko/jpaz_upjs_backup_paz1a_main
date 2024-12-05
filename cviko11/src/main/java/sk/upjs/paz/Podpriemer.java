@@ -18,7 +18,7 @@ public class Podpriemer {
         int noveCislo = Integer.MAX_VALUE;
 
         while (noveCislo >= 0) {
-            System.out.println("daj mi cislo: ");
+            System.out.print("daj mi cislo: ");
             noveCislo = sc.nextInt();
             if (noveCislo < 0) {
                 mojeZaporneCisielko = noveCislo;
@@ -34,7 +34,7 @@ public class Podpriemer {
 
         Boolean ouYesMamOdpoved = null;
         while (ouYesMamOdpoved == null) {
-            System.out.println("chces tam aj zaporne kamo? true/false");
+            System.out.print("chces tam aj zaporne kamo? (true/false) ");
             String chcem = sc.next();
             if (chcem.equals("true")) {
                 ouYesMamOdpoved = true;
@@ -50,7 +50,7 @@ public class Podpriemer {
     }
 
     public double priemer(List<Integer> cisla, boolean ajZaporne) {
-
+        double vysledok=
 
         // pozor na celociselne delenie
         return 0;

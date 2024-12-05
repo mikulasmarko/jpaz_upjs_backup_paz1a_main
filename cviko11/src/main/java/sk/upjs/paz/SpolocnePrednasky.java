@@ -23,11 +23,11 @@ public class SpolocnePrednasky {
                 String line = sc.nextLine();
                 String[] slova = line.split(" ");
                 for (int i = 0; i < slova.length; i++) {
-                    slova[i].toLowerCase();
-                    if (mapa.containsKey(slova[i])) {
-                        mapa.put(slova[i], mapa.get(slova[i]) + 1);
+                    String mojeSlovciko = slova[i].toLowerCase();
+                    if (mapa.containsKey(mojeSlovciko)) {
+                        mapa.put(mojeSlovciko, mapa.get(mojeSlovciko) + 1);
                     } else {
-                        mapa.put(slova[i], 1);
+                        mapa.put(mojeSlovciko, 1);
                     }
                 }
             }
@@ -36,20 +36,6 @@ public class SpolocnePrednasky {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         // ...?
