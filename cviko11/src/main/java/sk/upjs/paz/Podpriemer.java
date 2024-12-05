@@ -66,6 +66,11 @@ public class Podpriemer {
     }
 
     public List<Integer> preriedAZorad(List<Integer> cisla, double priemer) {
+        for (Integer i : cisla) {
+
+
+        }
+
         // vraj chcete modifikovat povodny, ale ked to bude tazke tak si vytvorte novy
         // vyberte si ci najprv zoradit alebo preriedit
         // zoradit = sort
