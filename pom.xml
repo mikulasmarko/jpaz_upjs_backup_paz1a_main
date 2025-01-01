@@ -24,6 +24,8 @@
         <module>cviko10</module>
         <module>diana</module>
         <module>domace7</module>
+        <module>mazers_game</module>
+        <module>magnetkyFinalTerm</module>
     </modules>
 
     <properties>
