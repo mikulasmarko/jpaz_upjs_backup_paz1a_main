@@ -13,12 +13,13 @@ public class Launcher {
 //        Magnet mag2=Magnet.fromString("2\tpriezvisko\tPL\tfalse\t258\tchujko\ttoto mi bolo treba");
 //        System.out.println(mag1);
 //        System.out.println(mag2);
-//        Fridge chlad=new Fridge();
+        Fridge chlad=new Fridge();
 //        chlad.addMagnet(mag1);
 //        chlad.addMagnet(mag2);
-//        chlad.saveMagnets("mojaChladnicka");
 
-        Fridge moja = new Fridge("mojaChladnicka");
-        System.out.println(moja);
+
+        chlad.loadMagnets("mojaChladnicka");
+//
+        System.out.println(chlad);
     }
 }

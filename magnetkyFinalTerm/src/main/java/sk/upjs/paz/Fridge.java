@@ -13,25 +13,19 @@ public class Fridge {
 
     public Fridge() {
         magnetky = new ArrayList<>();
-
     }
 
-    public Fridge(String filename) throws FileNotFoundException {
-        magnetky = new ArrayList<>();
-        loadMagnets(filename);
-    }
 
 
     public void addMagnet(Magnet magnet) {
-        this.magnetky.add(magnet);
+        magnetky.add(magnet);
     }
 
 
     public static Fridge loadMagnets(String filename) throws FileNotFoundException {
         File subor = new File(filename);
         Scanner scanner = new Scanner(subor);
-        Fridge vratim = new Fridge();
-
+        Fridge vratim =new Fridge();
         while (scanner.hasNextLine()) {
             vratim.addMagnet(Magnet.fromString(scanner.nextLine()));
         }
